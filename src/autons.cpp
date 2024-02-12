@@ -240,23 +240,24 @@ void skills(){
     ::launch(1);
   }
   matchLoadArm.set_value(false);
-  chassis.pid_turn_set(45, TURN_SPEED, false);
+  chassis.pid_turn_set(135, TURN_SPEED, false);
   chassis.pid_wait();
-  chassis.pid_drive_set(-4_ft, DRIVE_SPEED, true);
-  chassis.pid_wait();
-
-  setWings(true);
-  
-  chassis.pid_swing_set(ez::LEFT_SWING, -45_deg, -SWING_SPEED, 45);
+  chassis.pid_drive_set(4_ft, DRIVE_SPEED, true);
   chassis.pid_wait();
 
-  chassis.pid_drive_set(-2_ft, DRIVE_SPEED, true);
+
+  chassis.pid_swing_set(ez::LEFT_SWING, 90_deg, SWING_SPEED, 45);
+  chassis.pid_wait();
+
+  chassis.pid_drive_set(2_ft, DRIVE_SPEED, true);
 
   pros::delay(1000);
 
-  setWings(false);
 
-  chassis.pid_drive_set(1_ft, DRIVE_SPEED, true);
+  chassis.pid_drive_set(-1_ft, DRIVE_SPEED, true);
 
+  chassis.pid_wait();
+
+  chassis.pid_turn_set(90_deg, TURN_SPEED, false);
   
 }
